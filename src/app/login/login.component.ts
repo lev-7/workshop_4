@@ -59,12 +59,18 @@ export class LoginComponent implements OnInit {
         this.loginFail = false
       }else{
         this.loginFail = true
+        this.hasCurrentUser = false;
       }
     });
     console.log(this.hasCurrentUser);
     console.log(this.currentUser);
 
 
+  }
+
+  getColor(){
+    // console.log("getColor CALLED!");
+    return this.loginFail === true ? 'red':'green';
   }
 
 }

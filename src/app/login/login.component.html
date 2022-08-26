@@ -17,10 +17,12 @@
              <button type="submit" class="btn btn-black">Login</button>
              <button type="submit" class="btn btn-secondary">Register</button>
           </form>
-          <p *ngIf="hasCurrentUser;else loginFail">Logged in as: {{currentUser.name}}</p>
-          <ng-template #loginFail>
+          <p *ngIf="hasCurrentUser && !loginFail;else error"
+            [ngStyle]="{backgroudColor:getColor()}"
+          >Logged in as: {{currentUser.name}}</p>
+          <ng-template #error>
               <p *ngIf="loginFail"
-              [ngStyle]="{backgroudColor:'red'}">Logged in Failed</p>
+              [ngStyle]="{backgroudColor:getColor()}">Logged in Failed</p>
           </ng-template>
        </div>
     </div>
