@@ -8,8 +8,9 @@ import { User } from './model/user.model';
 })
 export class AppComponent {
   selectedSection = 'login';
-  loggedInUser = false;
+  loggedInUser = true;
   title = 'week4tut';
+  selectedUser:User;
 
   onNavigate(section:string){
     this.selectedSection = section

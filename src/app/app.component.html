@@ -1,12 +1,17 @@
 <app-header (sectionSelected)="onNavigate($event)"></app-header>
 <div class="container">
   <div class="col-md-7" *ngIf="selectedSection === 'login'">
-    <app-login></app-login>
+    <app-login (userSelected)="selectedUser = $event"></app-login>
   </div>
   <div class="col-md-5" *ngIf="selectedSection === 'account'">
     <p *ngIf="!loggedInUser;else showAccount">No Active login</p>
     <ng-template #showAccount>
-      <app-account></app-account>
+      <app-account *ngIf="selectedUser; else noAccount"
+        [user]="selectedUser">
+      </app-account>
+        <ng-template #noAccount>
+          <p>Please Login to view Account!</p>
+        </ng-template>
     </ng-template>
   </div>
 </div>
