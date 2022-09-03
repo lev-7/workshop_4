@@ -26,5 +26,17 @@ export class AppComponent implements OnInit{
         this.selectedUser = user;
       }
     );
+
+    console.log("Testing if DOM is ready");
+
+    if(typeof(Storage) !== 'undefined'){
+      console.log('Storage ready');
+      localStorage.setItem('name','Yasin Çakar');
+      console.log(localStorage.getItem('name'));
+    }else{
+      console.log("No storage Support");
+      
+    }
+    
   }
 }
